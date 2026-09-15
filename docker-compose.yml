@@ -1,0 +1,20 @@
+services:
+  provisions:
+    # After you've pushed this repo to GitHub and the "Build and publish
+    # Docker image" workflow has run once, use the published image — no
+    # build step needed on the NAS. Replace YOUR_GITHUB_USERNAME below.
+    image: ghcr.io/ramseswijers-ui/provisions:latest
+
+    # Alternative: build locally on the NAS instead of pulling from GHCR.
+    # Comment out "image:" above and uncomment this if you'd rather build
+    # from source every time (slower, but no GitHub Actions needed).
+    # build: .
+
+    container_name: provisions
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      # Change the left-hand side to a folder on your QNAP shared storage,
+      # e.g. /share/Container/provisions-data:/app/data
+      - ./data:/app/data
