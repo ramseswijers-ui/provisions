@@ -13,7 +13,7 @@ services:
     container_name: provisions
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "3050:3000"
     volumes:
       # Change the left-hand side to a folder on your QNAP shared storage,
       # e.g. /share/Container/provisions-data:/app/data
